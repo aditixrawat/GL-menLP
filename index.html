@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Men – Gully Labs</title>
-<link rel="stylesheet" href="css/styles.css?v=20">
+<link rel="stylesheet" href="css/styles.css?v=22">
 </head>
 <body>
 <div id="top">
@@ -57,15 +57,15 @@
     <div class="cat-grid" id="cats"></div>
   </section>
 
-  <!-- Recently viewed: shows once something has been opened -->
-  <section id="recent" class="sec" hidden>
-    <div class="wrap shead row-head"><div><span class="lbl">Saved on this device</span><h2>Still on your mind.</h2></div><button class="ulink" data-a="clearrecent">Clear</button></div>
-    <div class="rail prods" id="recentRail"></div>
+  <!-- Bestsellers with proof -->
+  <section id="best" class="sec">
+    <div class="wrap shead row-head rv"><div><span class="lbl">03 / The regulars</span><h2>The pairs people come back for.</h2></div><button class="ulink" data-a="cat" data-v="best">All bestsellers →</button></div>
+    <div class="rail prods" id="bestRail"></div>
   </section>
 
   <!-- Budget -->
   <section id="budget" class="sec wrap">
-    <div class="shead rv"><span class="lbl">03 / Budget first</span><h2>Set your budget.<br>We'll show what fits.</h2></div>
+    <div class="shead rv"><span class="lbl">04 / Budget first</span><h2>Set your budget.<br>We'll show what fits.</h2></div>
     <div class="file rv">
       <div class="file-tab">File · GL/Budget</div>
       <div class="file-body budget">
@@ -81,12 +81,6 @@
       </div>
     </div>
     <div class="combos rv"><span class="lbl">Or start here</span><div class="combo-row" id="combos"></div></div>
-  </section>
-
-  <!-- Bestsellers with proof -->
-  <section id="best" class="sec">
-    <div class="wrap shead row-head rv"><div><span class="lbl">04 / The regulars</span><h2>The pairs people come back for.</h2></div><button class="ulink" data-a="cat" data-v="best">All bestsellers →</button></div>
-    <div class="rail prods" id="bestRail"></div>
   </section>
 
   <!-- Shop by need -->
@@ -116,7 +110,7 @@
         <li><span class="lbl">02 /</span><b>One pair at a time.</b></li>
         <li><span class="lbl">03 /</span><b>Built on a wider last.</b></li>
       </ol>
-      <div class="mk-two"><img src="https://gullylabs.com/cdn/shop/files/COLLECTION_WISE_LOOKBOOK-28_1.jpg?v=2078586311&width=2200" alt="A hand holding a pair of suede sneakers" loading="lazy"></div>
+      <div class="mk-two"><img src="https://gullylabs.com/cdn/shop/files/COLLECTION_WISE_LOOKBOOK-28_1.jpg?v=2278586311&width=2200" alt="A hand holding a pair of suede sneakers" loading="lazy"></div>
       <div class="mk-end"><span class="mk-stamp">Handcrafted<br>for comfort</span><p>Every pair passes through hands before it reaches yours.</p></div>
     </div>
   </section>
@@ -169,18 +163,12 @@
     <div class="wrap"><blockquote class="quote rv"><span class="stars">★★★★★</span><p>“The fabric feels premium and the pair fits perfect.”</p><cite class="lbl">Suhas Acharya, customer</cite></blockquote></div>
   </section>
 
-  <!-- Stores -->
-  <section id="try" class="sec wrap">
-    <div class="shead rv"><span class="lbl">08 / Try in store</span><h2>Walk in. Try it on.</h2><p class="lead">Rather see it in person? Find your size, feel the material and pay at the counter.</p></div>
-    <div class="file rv" id="tryBox"></div>
-  </section>
-
   <!-- More to explore -->
   <section id="drop" class="sec wrap">
     <div class="drop rv">
       <div class="drop-img"><img src="https://gullylabs.com/cdn/shop/t/100/assets/gl-kaapi-table-v2.webp?v=52711285050787428081789553613" alt="Kaapi campaign" loading="lazy"><span class="stamp">New drop</span></div>
       <div class="drop-txt">
-        <div class="shead"><span class="lbl">09 / New drop</span><h2>The Kaapi Issue.</h2><p class="lead">Coffee arrived here as a colonial crop. Then we made it ours: filtered, frothed, poured from a height. This drop follows that journey.</p></div>
+        <div class="shead"><span class="lbl">08 / New drop</span><h2>The Kaapi Issue.</h2><p class="lead">Coffee arrived here as a colonial crop. Then we made it ours: filtered, frothed, poured from a height. This drop follows that journey.</p></div>
         <div class="drop-items" id="dropItems"></div>
         <button class="btn" data-a="coll" data-v="Kaapi">Shop the drop →</button>
       </div>
@@ -188,21 +176,13 @@
   </section>
 
   <section id="collections" class="sec">
-    <div class="wrap shead row-head rv"><div><span class="lbl">10 / Collections</span><h2>Shop by collection.</h2></div><div class="arrows"><button class="arrow" data-a="railprev" aria-label="Previous">←</button><button class="arrow" data-a="railnext" aria-label="Next">→</button></div></div>
+    <div class="wrap shead row-head rv"><div><span class="lbl">09 / Collections</span><h2>Shop by collection.</h2></div><div class="arrows"><button class="arrow" data-a="railprev" aria-label="Previous">←</button><button class="arrow" data-a="railnext" aria-label="Next">→</button></div></div>
     <div class="rail colls" id="colls"></div>
-  </section>
-
-  <section class="sec wrap">
-    <button class="kara rv" data-a="coll" data-v="Kara">
-      <img src="https://gullylabs.com/cdn/shop/files/86A0294.jpg?v=2087302605&width=1600" alt="Kara campaign" loading="lazy">
-      <div class="shade" style="background:linear-gradient(90deg,rgba(30,26,23,.75) 0%,rgba(30,26,23,0) 65%)"></div>
-      <div class="kara-txt"><span class="lbl">Kara / Workwear</span><b>The rest of the outfit.</b><span>Shackets, pintuck pants and pleat trousers, cut to go with the pairs.</span><span class="btn btn-cream">Shop Kara →</span></div>
-    </button>
   </section>
 
   <!-- Full catalogue -->
   <section id="shop" class="sec" style="padding-bottom:var(--sec)">
-    <div class="wrap shead row-head" style="padding-bottom:20px"><div><span class="lbl">11 / Everything</span><h2>All men's.</h2></div><span class="lbl" id="resultCount"></span></div>
+    <div class="wrap shead row-head" style="padding-bottom:20px"><div><span class="lbl">10 / Everything</span><h2>All men's.</h2></div><span class="lbl" id="resultCount"></span></div>
     <div class="filterbar">
       <div class="wrap fb-row">
         <div class="pills" id="pills"></div>
@@ -216,6 +196,20 @@
       <div class="grid" id="grid"></div>
       <div class="more" id="more" hidden><span class="lbl" id="shownLine"></span><button class="btn btn-line" data-a="more">Load more</button></div>
     </div>
+  </section>
+
+  <!-- Stores -->
+  <section id="try" class="sec wrap">
+    <div class="shead rv"><span class="lbl">11 / Try in store</span><h2>Walk in. Try it on.</h2><p class="lead">Rather see it in person? Find your size, feel the material and pay at the counter.</p></div>
+    <div class="file rv" id="tryBox"></div>
+  </section>
+
+  <section class="sec wrap" style="padding-bottom:var(--sec)">
+    <button class="kara rv" data-a="coll" data-v="Kara">
+      <img src="https://gullylabs.com/cdn/shop/files/86A0294.jpg?v=2287302605&width=1600" alt="Kara campaign" loading="lazy">
+      <div class="shade" style="background:linear-gradient(90deg,rgba(30,26,23,.75) 0%,rgba(30,26,23,0) 65%)"></div>
+      <div class="kara-txt"><span class="lbl">Kara / Workwear</span><b>The rest of the outfit.</b><span>Shackets, pintuck pants and pleat trousers, cut to go with the pairs.</span><span class="btn btn-cream">Shop Kara →</span></div>
+    </button>
   </section>
 
   <section class="finale">
@@ -239,7 +233,7 @@
 <div class="overlay" id="sheetWrap" data-a="closesheet" hidden><div class="sheet" id="sheet"></div></div>
 <div class="overlay chart-wrap" id="chartWrap" data-a="closechart" hidden><div class="chart" id="chart"></div></div>
 <div class="toast" id="toast" hidden></div>
-<script src="js/data.js?v=20"></script>
-<script src="js/app.js?v=20"></script>
+<script src="js/data.js?v=22"></script>
+<script src="js/app.js?v=22"></script>
 </body>
 </html>

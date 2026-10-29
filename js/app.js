@@ -19,26 +19,13 @@
     return `${top}<span class="pc-m">${facts}</span>`;
   }
   const tag = p => p.tag ? `<span class="stamp${p.tag === "new" ? " blue" : ""}">${p.tag === "new" ? "New" : "Bestseller"}</span>` : "";
-  /* rich cards (bestsellers, recently viewed) carry proof and a full-width size button; the rest keep the corner + */
+  /* rich cards (bestsellers) carry proof and a full-width size button; the rest keep the corner + */
   const card = (p, rich, no) => `<div class="pc"><div class="pc-img"><img src="${p.img}" alt="${p.name}" loading="lazy">${no ? `<span class="pc-no">No. ${pad(no)}</span>` : ""}${tag(p)}${rich && SEEN.has(p.id) ? `<button class="pc-seen" data-a="jump" data-v="comm">On real people</button>` : ""}${rich ? "" : `<button class="pc-add" data-a="open" data-v="${p.id}" aria-label="Add ${p.name} to bag">+</button>`}</div><div class="pc-t"><small>${p.line}</small><span>${p.name}</span><b>${p.price}</b>${rich ? proof(p) : ""}</div>${rich ? `<button class="pc-cta" data-a="open" data-v="${p.id}">Select size</button>` : ""}</div>`;
   const hdrH = () => document.querySelector(".hdr").offsetHeight;
   const go = id => { const el = $(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - hdrH() + 1, behavior: calm ? "auto" : "smooth" }); };
   const count = patch => P.filter(p => GROUPS.every(([k]) => !(patch[k] || []).length || HIT[k](p, patch[k]))).length;
   const from = list => list.length ? "From " + rs(Math.min(...list.map(p => p.pr))) : "";
 
-  /* recently viewed, per browser; page works the same if storage is blocked */
-  const RK = "gl-men-recent";
-  let recent = [];
-  try { recent = JSON.parse(localStorage.getItem(RK) || "[]").filter(id => BY[id]); } catch (e) {}
-  function remember(id) {
-    recent = [id, ...recent.filter(x => x !== id)].slice(0, 8);
-    try { localStorage.setItem(RK, JSON.stringify(recent)); } catch (e) {}
-    renderRecent();
-  }
-  function renderRecent() {
-    $("recent").hidden = !recent.length;
-    $("recentRail").innerHTML = recent.map(id => card(BY[id], true)).join("");
-  }
   function route(v) {
     if (v === "new") return toShop({}, "new");
     if (v === "best" || v === "all") return toShop({}, "best");
@@ -230,9 +217,8 @@
       case "frfeel": F.feel = v; renderFit(); break;
       case "clearmax": S.max = null; renderShop(); break;
       case "jump": go(v); break;
-      case "clearrecent": recent = []; try { localStorage.removeItem(RK); } catch (e) {} renderRecent(); break;
       case "coll": toShop({ colls: [v] }); break;
-      case "open": S.sheet = { ids: [v], look: null }; S.picks = {}; renderSheet(); remember(v); break;
+      case "open": S.sheet = { ids: [v], look: null }; S.picks = {}; renderSheet(); break;
       case "lookadd": S.sheet = { ids: LOOKS[+v][1].map(r => r[0]), look: LOOKS[+v][0] }; S.picks = {}; renderSheet(); break;
       case "lookprev": setLook(S.look - 1, true); break;
       case "looknext": setLook(S.look + 1, true); break;
@@ -266,7 +252,7 @@
   let lastBp = bp();
   window.addEventListener("resize", () => { if (bp() !== lastBp) { lastBp = bp(); renderShop(); } });
 
-  renderHero(); heroTimer(); renderStatic(); renderRecent(); renderBudget(); renderFit(); renderOcc(); setLook(0, false); renderShop();
+  renderHero(); heroTimer(); renderStatic(); renderBudget(); renderFit(); renderOcc(); setLook(0, false); renderShop();
 
   /* "made by hand" banner: scroll progress drives three stages through CSS variables */
   const mk = $("made"), pin = mk.querySelector(".mk-pin");
