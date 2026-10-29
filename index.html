@@ -4,16 +4,19 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Men – Gully Labs</title>
-<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/styles.css?v=20">
 </head>
 <body>
 <div id="top">
-  <div class="announce"><span>✨ KAAPI Collection Live Now</span><i>·</i><span>✨ Try in store: New Delhi and Bengaluru</span><i>·</i><span>✨ Cash on Delivery available</span><i>·</i><span>✨ Easy 30 Days Returns and Exchanges</span></div>
+  <div class="mq mq-top" aria-label="Announcements"><div class="mq-track">
+    <span>Kaapi collection live now</span><i>✦</i><span>Try in store: New Delhi and Bengaluru</span><i>✦</i><span>Cash on delivery</span><i>✦</i><span>Easy 30 day returns and exchanges</span><i>✦</i>
+    <span aria-hidden="true">Kaapi collection live now</span><i>✦</i><span aria-hidden="true">Try in store: New Delhi and Bengaluru</span><i>✦</i><span aria-hidden="true">Cash on delivery</span><i>✦</i><span aria-hidden="true">Easy 30 day returns and exchanges</span><i>✦</i>
+  </div></div>
   <header class="hdr">
     <div class="hdr-in">
       <nav class="hdr-nav"><a href="#top" class="on">Men</a><a href="#top">Women</a></nav>
       <a href="#top" class="logo"><img src="assets/logo-wordmark.png" alt="गली LABS"></a>
-      <div class="hdr-r"><button class="bag" aria-label="Bag"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="bag-n" id="bagN" hidden>0</span></button></div>
+      <div class="hdr-r"><button class="bag" aria-label="Bag"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 7h12l1 14H5L6 7Z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span class="bag-n" id="bagN" hidden>0</span></button></div>
     </div>
     <nav class="subnav" aria-label="Shop men's"><div class="subnav-in">
       <button data-a="cat" data-v="sneakers">Sneakers</button>
@@ -21,103 +24,185 @@
       <button data-a="cat" data-v="apparel">Apparel</button>
       <button data-a="cat" data-v="new">New drops</button>
       <button data-a="cat" data-v="best">Bestsellers</button>
-      <button data-a="jump" data-v="budget">Shop by price</button>
-      <button data-a="openchart">Size chart</button>
+      <button data-a="jump" data-v="budget">Budget</button>
+      <button data-a="jump" data-v="fitting">Fitting room</button>
       <button data-a="jump" data-v="try">Stores</button>
     </div></nav>
   </header>
 
-  <!-- 01 Hero: brand + two immediate routes -->
+  <!-- Hero slideshow -->
   <section class="hero" id="hero" aria-roledescription="carousel" aria-label="Featured">
-    <h1 class="sr">Men's sneakers, slides and apparel</h1>
+    <h1 class="sr">Gully Labs men's sneakers, slides and apparel</h1>
     <div id="heroSlides"></div>
     <div class="hero-ctl"><div class="hero-dots" id="heroDots"></div><button class="hero-pp" id="heroPP" data-a="heropp" aria-label="Pause slideshow">❚❚</button></div>
   </section>
 
-  <!-- 02 Quick shop: categories with live counts -->
+  <!-- Delivery, payment, returns -->
+  <div class="trust" id="trust"><div class="wrap trust-in">
+    <div><i>✦</i><b>Next day dispatch</b><span>Dispatch within 24 hours of order</span></div>
+    <div><i>✦</i><b>Cash on delivery</b><span>Opt for COD among other payment methods</span></div>
+    <div><i>✦</i><b>Returns and exchanges</b><span>Easy 30 days returns and exchanges</span></div>
+    <div><i>✦</i><b>Try in store</b><span>Gully Labs stores in New Delhi and Bengaluru</span></div>
+  </div></div>
+
+  <!-- Pick your lane: one route per way of shopping -->
+  <section id="lanes" class="sec">
+    <div class="wrap shead rv"><span class="lbl">01 / The men's page</span><h2>Pick your lane.</h2><p class="lead">Every guy shops differently. Some check the fabric twice. Some set a budget and are done in half an hour. Pick the way you shop and we'll take you straight there.</p></div>
+    <div class="lanes" id="laneList"></div>
+  </section>
+
+  <!-- Categories -->
   <section id="quick" class="sec wrap">
-    <div class="head-row"><h2>Shop by category</h2><button class="ulink" data-a="cat" data-v="all">View all</button></div>
+    <div class="shead row-head rv"><div><span class="lbl">02 / The line-up</span><h2>Shop by category.</h2></div><button class="ulink" data-a="cat" data-v="all">View all →</button></div>
     <div class="cat-grid" id="cats"></div>
   </section>
 
-  <!-- Recently viewed: only shows once something has been opened -->
+  <!-- Recently viewed: shows once something has been opened -->
   <section id="recent" class="sec" hidden>
-    <div class="wrap head-row" style="margin-bottom:var(--headgap)"><h2>Pick up where you left off</h2><button class="linkbtn" data-a="clearrecent">Clear</button></div>
+    <div class="wrap shead row-head"><div><span class="lbl">Saved on this device</span><h2>Still on your mind.</h2></div><button class="ulink" data-a="clearrecent">Clear</button></div>
     <div class="rail prods" id="recentRail"></div>
   </section>
 
-  <!-- 03 Shop by budget -->
+  <!-- Budget -->
   <section id="budget" class="sec wrap">
-    <div class="head"><h2>Good pairs. Your price.</h2><span class="sub">Start with what you want to spend. Every route opens the full range at that price, footwear and apparel.</span></div>
-    <div class="bands" id="bands"></div>
-    <div class="combos" id="combos"></div>
+    <div class="shead rv"><span class="lbl">03 / Budget first</span><h2>Set your budget.<br>We'll show what fits.</h2></div>
+    <div class="file rv">
+      <div class="file-tab">File · GL/Budget</div>
+      <div class="file-body budget">
+        <div class="bud-l">
+          <span class="lbl">Spend up to</span>
+          <output class="bud-n" id="budN">₹3,990</output>
+          <input type="range" id="budR" min="1990" max="5990" step="100" value="3990" aria-label="Maximum price">
+          <div class="bud-scale"><span>₹1,990</span><span>₹5,990</span></div>
+          <p class="bud-line" id="budLine"></p>
+          <button class="btn" id="budGo" data-a="budgo">Show styles →</button>
+        </div>
+        <div class="bud-r" id="budPeek"></div>
+      </div>
+    </div>
+    <div class="combos rv"><span class="lbl">Or start here</span><div class="combo-row" id="combos"></div></div>
   </section>
 
-  <!-- 04 Bestsellers with proof -->
+  <!-- Bestsellers with proof -->
   <section id="best" class="sec">
-    <div class="wrap head-row" style="margin-bottom:var(--headgap)"><div class="head"><h2>Bestsellers</h2><span class="sub">The pairs and pieces people come back for.</span></div><button class="ulink" data-a="cat" data-v="best">Shop all bestsellers</button></div>
+    <div class="wrap shead row-head rv"><div><span class="lbl">04 / The regulars</span><h2>The pairs people come back for.</h2></div><button class="ulink" data-a="cat" data-v="best">All bestsellers →</button></div>
     <div class="rail prods" id="bestRail"></div>
   </section>
 
-  <!-- 05 Shop by need -->
+  <!-- Shop by need -->
   <section id="occasion" class="sec wrap">
-    <div class="head"><h2>Where are you headed?</h2><span class="sub">Pick your plan to see what to wear.</span></div>
+    <div class="shead rv"><span class="lbl">05 / Shop by plan</span><h2>Where are you headed?</h2></div>
     <div class="tabs" id="occTabs"></div>
     <div id="occPanel"></div>
   </section>
 
   <section id="looks" class="sec">
-    <div class="wrap head-row" style="margin-bottom:var(--headgap)"><h2>Shop the look</h2><div class="arrows"><button class="arrow" id="lookPrev" data-a="lookprev" aria-label="Previous look">←</button><button class="arrow" id="lookNext" data-a="looknext" aria-label="Next look">→</button></div></div>
+    <div class="wrap shead row-head rv"><div><span class="lbl">06 / Shop the look</span><h2>Wear it as a set.</h2></div><div class="arrows"><button class="arrow" id="lookPrev" data-a="lookprev" aria-label="Previous look">←</button><button class="arrow" id="lookNext" data-a="looknext" aria-label="Next look">→</button></div></div>
     <div class="rail looks" id="lookRail"></div>
     <div class="dots" id="lookDots"></div>
   </section>
 
-  <!-- 06 Product confidence: fit, make, real people -->
-  <section id="fit" class="sec">
-    <div class="wrap head" style="margin-bottom:var(--headgap)"><h2>Will it fit? Will it look right?</h2><span class="sub">What you'd check in a store, answered before you order.</span></div>
-    <div class="wrap conf">
-      <div class="conf-c"><b>Take your usual size</b><span>Our pairs are built on a wider last. Check your foot length against the chart if you're between sizes.</span><button class="ulink" data-a="openchart">Size chart</button></div>
-      <div class="conf-c"><b>Hand-lasted</b><span>Every pair is shaped over its last by hand, one at a time.</span><button class="ulink" data-a="cat" data-v="footwear">Shop footwear</button></div>
-      <div class="conf-c"><b>Wrong size? Swap it.</b><span>30 days to return or exchange. Or try it first at our New Delhi and Bengaluru stores.</span><button class="ulink" data-a="jump" data-v="trust">Returns and delivery</button></div>
+  <!-- Made by hand: pinned, scroll-driven banner (no product links) -->
+  <section id="made" class="mk" aria-label="Made by hand">
+    <div class="mk-pin">
+      <div class="mk-frame"><img src="https://gullylabs.com/cdn/shop/t/100/assets/gl-kaapi-campaign-back-tab.jpg?v=28665856757239752161789553589&width=2200" alt="Embroidered गली on the heel of a suede sneaker"></div>
+      <div class="mk-dim" aria-hidden="true"></div>
+      <span class="lbl mk-k">Made in India · Handcrafted for comfort</span>
+      <p class="mk-w mk-w1" aria-hidden="true">Made</p>
+      <p class="mk-w mk-w2" aria-hidden="true">by hand.</p>
+      <h2 class="sr">Made by hand</h2>
+      <ol class="mk-facts">
+        <li><span class="lbl">01 /</span><b>Shaped over the last by hand.</b></li>
+        <li><span class="lbl">02 /</span><b>One pair at a time.</b></li>
+        <li><span class="lbl">03 /</span><b>Built on a wider last.</b></li>
+      </ol>
+      <div class="mk-two"><img src="https://gullylabs.com/cdn/shop/files/COLLECTION_WISE_LOOKBOOK-28_1.jpg?v=2078586311&width=2200" alt="A hand holding a pair of suede sneakers" loading="lazy"></div>
+      <div class="mk-end"><span class="mk-stamp">Handcrafted<br>for comfort</span><p>Every pair passes through hands before it reaches yours.</p></div>
     </div>
-    <div class="wrap head-row" style="margin:40px auto var(--headgap)"><div class="head"><b class="h3">On real people, not just models</b><span class="sub">Tap a photo to shop what they're wearing.</span></div></div>
+  </section>
+
+  <!-- Fitting room: size tool, details, real people -->
+  <section id="fitting" class="sec flip">
+    <div class="wrap shead rv"><span class="lbl">07 / Fit first</span><h2>The fitting room.</h2><p class="lead">No tape measure needed. Tell us two things and we'll tell you your Gully size.</p></div>
+    <div class="wrap">
+      <div class="fr rv">
+        <div class="fr-steps">
+          <div class="fr-step"><span class="lbl">Step 01</span><b>What size do you usually wear?</b><span class="fr-hint">Your UK size in most sneakers.</span><div class="fr-opts" id="frSize"></div></div>
+          <div class="fr-step"><span class="lbl">Step 02</span><b>How do most sneakers feel on you?</b><div class="fr-opts" id="frFeel"></div></div>
+          <details class="fr-measure">
+            <summary><span>Not sure of your size? Measure your foot instead</span><i aria-hidden="true">+</i></summary>
+            <ol class="fr-how">
+              <li><b>Stand on paper</b><span>Heel against a wall, full weight on that foot.</span></li>
+              <li><b>Mark your longest toe</b><span>Hold the pen straight up.</span></li>
+              <li><b>Measure the line</b><span>From the wall to the mark, in cm.</span></li>
+            </ol>
+            <div class="fit-tool">
+              <div class="ruler" aria-hidden="true"></div>
+              <input type="range" id="fitR" min="25" max="29.8" step="0.1" value="26.4" aria-label="Foot length, heel to longest toe, in centimetres">
+              <div class="fit-scale"><span>Your foot</span><b id="fitCm">26.4 cm</b></div>
+            </div>
+          </details>
+        </div>
+        <div class="box" aria-live="polite">
+          <div class="box-h"><span>गली LABS</span><span class="lbl">Your size</span></div>
+          <div class="box-b">
+            <output class="box-n" id="boxN">UK8</output>
+            <dl class="box-rows"><div><dt>EU</dt><dd id="boxEu">41</dd></div><div><dt>Fits feet up to</dt><dd id="boxCm">26.6 cm</dd></div><div><dt>Last</dt><dd>Wider</dd></div></dl>
+            <p class="box-note" id="boxNote"></p>
+            <button class="btn" id="fitGo" data-a="fitgo" data-v="UK8">Show pairs in UK8 →</button>
+            <div class="box-links"><button class="ulink" data-a="openchart">Full size chart</button><button class="ulink" data-a="jump" data-v="try">Try it in store</button></div>
+          </div>
+          <div class="box-bar" aria-hidden="true"></div>
+        </div>
+      </div>
+      <div class="closer rv">
+        <span class="lbl">Look closer.</span>
+        <ol class="details">
+          <li><span class="lbl">01 /</span><b>A wider last.</b><p>Our pairs are built on a wider last, so take your usual size.</p></li>
+          <li><span class="lbl">02 /</span><b>Lasted by hand.</b><p>Every pair is shaped over its last by hand, one at a time.</p></li>
+          <li><span class="lbl">03 /</span><b>30 days to swap.</b><p>Wrong size? Return or exchange it within 30 days. Or try it first in store.</p></li>
+        </ol>
+      </div>
+    </div>
+    <div class="wrap shead rv" style="margin-top:72px"><span class="lbl">On real people, not just models</span><h2>Worn in the gully.</h2></div>
     <div class="rail comm" id="comm"></div>
-    <div class="wrap"><blockquote class="quote"><span class="stars">★★★★★</span><p>“The fabric feels premium and the pair fits perfect.”</p><cite>Suhas Acharya, customer</cite></blockquote></div>
+    <div class="wrap"><blockquote class="quote rv"><span class="stars">★★★★★</span><p>“The fabric feels premium and the pair fits perfect.”</p><cite class="lbl">Suhas Acharya, customer</cite></blockquote></div>
   </section>
 
-  <!-- 07 Offline bridge -->
-  <section id="try" class="sec wrap" style="scroll-margin-top:var(--hdr)">
-    <div class="try" id="tryBox"></div>
+  <!-- Stores -->
+  <section id="try" class="sec wrap">
+    <div class="shead rv"><span class="lbl">08 / Try in store</span><h2>Walk in. Try it on.</h2><p class="lead">Rather see it in person? Find your size, feel the material and pay at the counter.</p></div>
+    <div class="file rv" id="tryBox"></div>
   </section>
 
-  <!-- 09 More to explore -->
+  <!-- More to explore -->
   <section id="drop" class="sec wrap">
-    <div class="drop">
-      <div class="drop-img"><img src="https://gullylabs.com/cdn/shop/t/100/assets/gl-kaapi-table-v2.webp?v=52711285050787428081789553613" alt="Kaapi campaign"><span class="chip chip-blue" style="position:absolute;top:16px;left:16px">New drop</span></div>
+    <div class="drop rv">
+      <div class="drop-img"><img src="https://gullylabs.com/cdn/shop/t/100/assets/gl-kaapi-table-v2.webp?v=52711285050787428081789553613" alt="Kaapi campaign" loading="lazy"><span class="stamp">New drop</span></div>
       <div class="drop-txt">
-        <div class="stack14"><h2>The Kaapi Issue</h2><p class="lead">Coffee arrived here as a colonial crop. Then we made it ours: filtered, frothed, poured from a height. This drop follows that journey.</p></div>
+        <div class="shead"><span class="lbl">09 / New drop</span><h2>The Kaapi Issue.</h2><p class="lead">Coffee arrived here as a colonial crop. Then we made it ours: filtered, frothed, poured from a height. This drop follows that journey.</p></div>
         <div class="drop-items" id="dropItems"></div>
-        <button class="btn btn-outline btn-lg" data-a="coll" data-v="Kaapi" style="align-self:flex-start">Shop the drop</button>
+        <button class="btn" data-a="coll" data-v="Kaapi">Shop the drop →</button>
       </div>
     </div>
   </section>
 
   <section id="collections" class="sec">
-    <div class="wrap head-row" style="margin-bottom:var(--headgap)"><h2>Shop by collection</h2><div class="arrows"><button class="arrow" data-a="railprev" aria-label="Previous">←</button><button class="arrow" data-a="railnext" aria-label="Next">→</button></div></div>
+    <div class="wrap shead row-head rv"><div><span class="lbl">10 / Collections</span><h2>Shop by collection.</h2></div><div class="arrows"><button class="arrow" data-a="railprev" aria-label="Previous">←</button><button class="arrow" data-a="railnext" aria-label="Next">→</button></div></div>
     <div class="rail colls" id="colls"></div>
   </section>
 
   <section class="sec wrap">
-    <button class="kara" data-a="coll" data-v="Kara">
-      <img src="https://gullylabs.com/cdn/shop/files/86A0294.jpg?v=1787302605&width=1600" alt="Kara campaign">
-      <div class="shade" style="background:linear-gradient(90deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 60%)"></div>
-      <div class="kara-txt"><span class="chip chip-white">New: Kara</span><b>The rest of the outfit.</b><span>Shackets, pintuck pants and pleat trousers, cut to go with the pairs.</span><span class="pill-cta">Shop Kara <i>→</i></span></div>
+    <button class="kara rv" data-a="coll" data-v="Kara">
+      <img src="https://gullylabs.com/cdn/shop/files/86A0294.jpg?v=2087302605&width=1600" alt="Kara campaign" loading="lazy">
+      <div class="shade" style="background:linear-gradient(90deg,rgba(30,26,23,.75) 0%,rgba(30,26,23,0) 65%)"></div>
+      <div class="kara-txt"><span class="lbl">Kara / Workwear</span><b>The rest of the outfit.</b><span>Shackets, pintuck pants and pleat trousers, cut to go with the pairs.</span><span class="btn btn-cream">Shop Kara →</span></div>
     </button>
   </section>
 
-  <!-- Full catalogue with filters -->
+  <!-- Full catalogue -->
   <section id="shop" class="sec" style="padding-bottom:var(--sec)">
-    <div class="wrap head-row" style="padding-bottom:24px;align-items:baseline"><h2>All men's</h2><span class="sub" id="resultCount"></span></div>
+    <div class="wrap shead row-head" style="padding-bottom:20px"><div><span class="lbl">11 / Everything</span><h2>All men's.</h2></div><span class="lbl" id="resultCount"></span></div>
     <div class="filterbar">
       <div class="wrap fb-row">
         <div class="pills" id="pills"></div>
@@ -127,30 +212,34 @@
     </div>
     <div class="wrap chips-row" id="chips" hidden></div>
     <div class="wrap" style="padding-top:28px">
-      <div id="empty" class="empty" hidden><b>Nothing matches those filters.</b><button class="btn btn-dark" data-a="clearall">Clear filters</button></div>
+      <div id="empty" class="empty" hidden><b>Nothing matches those filters.</b><button class="btn" data-a="clearall">Clear filters</button></div>
       <div class="grid" id="grid"></div>
-      <div class="more" id="more" hidden><span id="shownLine"></span><button class="btn btn-outline btn-lg" data-a="more">Load more</button></div>
+      <div class="more" id="more" hidden><span class="lbl" id="shownLine"></span><button class="btn btn-line" data-a="more">Load more</button></div>
     </div>
   </section>
 
-  <!-- 08 Delivery, payment, returns -->
-  <div class="trust" id="trust"><div class="wrap trust-in">
-    <div><b>Next Day Dispatch</b><span>Dispatch within 24 hours of order</span></div>
-    <div><b>Cash on Delivery</b><span>Opt for COD among other payment methods</span></div>
-    <div><b>Returns and Exchanges</b><span>Easy 30 days Returns and Exchanges</span></div>
-    <div><b>Try in Store</b><span>Gully Labs stores in New Delhi and Bengaluru</span></div>
-  </div></div>
+  <section class="finale">
+    <div class="mq mq-big" aria-hidden="true"><div class="mq-track"><span>Made in India</span><i>✦</i><span>Handcrafted for comfort</span><i>✦</i><span>Top grade materials</span><i>✦</i><span>Made in India</span><i>✦</i><span>Handcrafted for comfort</span><i>✦</i><span>Top grade materials</span><i>✦</i></div></div>
+    <div class="wrap finale-in rv"><h2>Pick your pair.</h2><p class="lead">Built with the community. Shared with the community.</p><button class="btn btn-cream" data-a="cat" data-v="all">Shop all men's →</button></div>
+  </section>
+
   <footer class="wrap foot">
-    <div class="stack14" style="max-width:420px"><img src="assets/logo-wordmark.png" alt="गली LABS" style="height:26px;width:auto;align-self:flex-start"><span class="muted14">Built with the community. Shared with the community. First access, always.</span></div>
-    <div class="signup" id="signup"><b>Get first access to the next drop</b><div class="row" style="flex-wrap:nowrap"><input id="email" type="email" placeholder="Your email" aria-label="Your email"><button class="btn btn-dark" id="join">Sign up</button></div></div>
+    <div class="foot-l"><img src="assets/logo-wordmark.png" alt="गली LABS"><span class="lbl">Made in India · Handcrafted for comfort</span></div>
+    <div class="signup" id="signup"><b>Get first access to the next drop</b><div class="row nowrap"><input id="email" type="email" placeholder="Your email" aria-label="Your email"><button class="btn" id="join">Sign up</button></div></div>
     <b id="joined" hidden>You're on the list.</b>
   </footer>
+</div>
+
+<!-- Sticky shop bar: shows between the hero and the full catalogue -->
+<div class="dock" id="dock" aria-hidden="true">
+  <div><b>Men</b><span class="lbl" id="dockLine"></span></div>
+  <button class="btn" data-a="cat" data-v="all" tabindex="-1">Shop now →</button>
 </div>
 
 <div class="overlay" id="sheetWrap" data-a="closesheet" hidden><div class="sheet" id="sheet"></div></div>
 <div class="overlay chart-wrap" id="chartWrap" data-a="closechart" hidden><div class="chart" id="chart"></div></div>
 <div class="toast" id="toast" hidden></div>
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
+<script src="js/data.js?v=20"></script>
+<script src="js/app.js?v=20"></script>
 </body>
 </html>

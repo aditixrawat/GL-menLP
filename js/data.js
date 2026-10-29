@@ -36,13 +36,21 @@ const RAW = [
 const fmt = n => "₹" + n.toLocaleString("en-IN") + ".00";
 const P = RAW.map(([id, name, line, cat, coll, pr, f, sz, tag], rank) => ({ id, name, line, cat, coll, pr, rank, tag, price: fmt(pr), img: CDN + f + "&width=800", sz }));
 const BY = Object.fromEntries(P.map(p => [p.id, p]));
-/* hero slides: [kicker, headline, line, image, [label, action, value] x2] */
+/* hero slides: [label, headline, line, image, [label, action, value] x2] */
 const HERO = [
-  ["Men", "Pairs first. The rest of the outfit, too.", "Hand-lasted sneakers and slides, and the jerseys, shackets and trousers cut to go with them.", CDN + "Baaz1962.jpg?v=1782819489&width=2200", [["Shop footwear", "cat", "footwear"], ["Shop apparel", "cat", "apparel"]]],
-  ["New drop", "The Kaapi Issue.", "Two pairs, with coffee beans printed on the sockliner.", AS + "gl-kaapi-look-01.jpg?v=10865441980311467331789554981", [["Shop Kaapi", "coll", "Kaapi"], ["All new drops", "cat", "new"]]],
-  ["Under ₹2,000", "Good style. Your price.", "Gully 17 jerseys at ₹1,990, and every style sorted by budget.", CDN + "DSF0009_copy.jpg?v=1782125658&width=2200", [["Shop under ₹2,000", "price", "Under ₹2,000"], ["Shop by price", "jump", "budget"]]],
-  ["Try in store", "Try it on in New Delhi and Bengaluru.", "Walk in, find your size and feel the material before you pay.", CDN + "DSC04076_c8fd47c6-32c0-4340-92ed-179908182a46.jpg?v=1780385557&width=2200", [["Find a store", "jump", "try"], ["Size chart", "openchart", ""]]],
-  ["New: Kara", "The rest of the outfit.", "Shackets, pintuck pants and pleat trousers, cut to go with the pairs.", CDN + "86A0294.jpg?v=1787302605&width=2200", [["Shop Kara", "coll", "Kara"], ["Shop apparel", "cat", "apparel"]]]
+  ["01 / The pairs", "Pairs first. The rest of the outfit, too.", "Hand-lasted sneakers and slides, and the jerseys, shackets and trousers cut to go with them.", CDN + "Baaz1962.jpg?v=1782819489&width=2200", [["Shop footwear", "cat", "footwear"], ["Shop apparel", "cat", "apparel"]]],
+  ["02 / New drop", "The Kaapi Issue.", "Coffee culture, cut and stitched. Two pairs with beans printed on the sockliner.", AS + "gl-kaapi-look-01.jpg?v=10865441980311467331789554981", [["Shop Kaapi", "coll", "Kaapi"], ["All new drops", "cat", "new"]]],
+  ["03 / Under ₹2,000", "Good style. Your price.", "Gully 17 jerseys at ₹1,990. Set your budget and see only what fits it.", CDN + "DSF0009_copy.jpg?v=1782125658&width=2200", [["Shop under ₹2,000", "price", "Under ₹2,000"], ["Set your budget", "jump", "budget"]]],
+  ["04 / Try in store", "Walk in. Try it on.", "Gully Labs stores in New Delhi and Bengaluru. Find your size before you pay.", CDN + "DSC04076_c8fd47c6-32c0-4340-92ed-179908182a46.jpg?v=1780385557&width=2200", [["Find a store", "jump", "try"], ["The fitting room", "jump", "fitting"]]],
+  ["05 / Kara", "Designed for doers.", "Shackets, pintuck pants and pleat trousers, cut to go with the pairs.", CDN + "86A0294.jpg?v=1787302605&width=2200", [["Shop Kara", "coll", "Kara"], ["Shop apparel", "cat", "apparel"]]]
+];
+/* "pick your lane": one route per way of shopping, [no, title, line, target section] */
+const LANES = [
+  ["01", "Fit first.", "Size, fabric and real people wearing it, before anything else.", "fitting"],
+  ["02", "Budget first.", "Set a number. See only what fits it.", "budget"],
+  ["03", "Straight to it.", "Already know how our pairs fit and feel? Skip the browsing and go right to sneakers, slides or apparel.", "quick"],
+  ["04", "Try before you buy.", "Rather see it in person? Walk into our New Delhi or Bengaluru store and try your size.", "try"],
+  ["05", "Keep it simple.", "Start with the regulars. Pay on delivery, swap within 30 days.", "best"]
 ];
 const OCC = [
   ["work","Workdays","Clean pairs that go with trousers and a shirt.","White, black or navy leather. Keep the rest simple."],
