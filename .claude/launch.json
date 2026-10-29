@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "men-landing",
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-I", "-c", "import functools,http.server as h;h.ThreadingHTTPServer(('127.0.0.1',5178),functools.partial(h.SimpleHTTPRequestHandler,directory='/Users/aditirawat/Downloads/project/GL-men-apparelnshoes')).serve_forever()"],
+      "port": 5178
+    }
+  ]
+}
